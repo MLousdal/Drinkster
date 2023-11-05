@@ -8,7 +8,7 @@
         Drink'ster
       </h1>
     </header>
-    <section class="container grid md:grid-cols-2 xl:grid-cols-4 gap:8 xl:gap-12">
+    <section class="container grid md:grid-cols-2 xl:grid-cols-4 gap-8 xl:gap-12">
       <RouterLink :to="{ name: 'overunder' }">
         <Card title="Over / Under" image="/overunder.svg" class="block"></Card>
       </RouterLink>
