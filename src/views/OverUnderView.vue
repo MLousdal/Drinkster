@@ -6,61 +6,56 @@
       Over / Under
     </h1>
   </header>
-  <section class="container flex flex-col items-center gap-6">
+  <section class="container flex flex-col items-center gap-20">
     <header>
-      <h2 class="text-3xl font-bold" v-if="tally">Optælling: {{ tally }}</h2>
+      <h2 class="text-3xl font-bold">
+        <template v-if="lost">Du tabte 💀</template>
+        <template v-else>Optælling</template>: {{ tally }}
+      </h2>
     </header>
-    <PlayingCard :card="deck[currentCard]"></PlayingCard>
+    <div class="relative">
+      <img
+        v-for="card in currentCard"
+        :key="card"
+        :src="`/playing_cards/fronts/${deck[card - 1]}.svg`"
+        alt="card back"
+        class="absolute -z-10"
+        :style="offsets[card]"
+      />
+      <PlayingCard :card="deck[currentCard]" class="shadow-xl"></PlayingCard>
+    </div>
     <footer>
-      <button
-        type="button"
-        class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 disabled:cursor-not-allowed"
-        @click="pullCard(1)"
-        :disabled="lost"
-      >
-        Over
-      </button>
-      <button
-        type="button"
-        class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 disabled:cursor-not-allowed"
-        @click="pullCard(0)"
-        :disabled="lost"
-      >
-        Under
-      </button>
+      <template v-if="lost">
+        <button
+          type="button"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-5xl p-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          @click="reset"
+        >
+          Drukket!
+        </button>
+      </template>
+      <template v-else>
+        <button
+          type="button"
+          class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-5xl p-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+          @click="pullCard(1)"
+        >
+          <i class="ico">thumb_up</i><span class="hidden">Over</span>
+        </button>
+        <button
+          type="button"
+          class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-5xl p-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+          @click="pullCard(0)"
+        >
+          <i class="ico">thumb_down</i><span class="hidden">Under</span>
+        </button>
+      </template>
     </footer>
   </section>
-  <div
-    v-show="lost"
-    class="fixed top-0 left-0 right-0 z-50 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full grid place-content-center"
-  >
-    <div class="relative w-full min-w-sm max-h-full">
-      <!-- Modal content -->
-      <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-        <!-- Modal body -->
-        <div class="p-6 space-y-6">
-          <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">Du tabte 💀</p>
-          <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">{{ tally }}</p>
-        </div>
-        <!-- Modal footer -->
-        <div
-          class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600"
-        >
-          <button
-            type="button"
-            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            @click="reset"
-          >
-            Drukket!
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
 </template>
 <script setup lang="ts">
 import PlayingCard from '@/components/PlayingCard.vue'
-import { onMounted, ref, reactive } from 'vue'
+import { onMounted, ref, reactive, watch } from 'vue'
 import { Guess } from '@/models/overunder'
 
 // Deck
@@ -104,6 +99,7 @@ function pullCard(guess: Guess) {
     currentCard.value = 0
   } else {
     currentCard.value++
+    offsets.push(getOffset())
   }
 
   handleResult(guess)
@@ -128,4 +124,28 @@ function reset() {
   lost.value = false
   tally.value = 0
 }
+
+// Play area
+const offsets: string[] = reactive([])
+
+function getOffset() {
+  const rotate = getRandomInt(16)
+  const top = getRandomInt(8)
+  const start = getRandomInt(8)
+  const reverseRotate = getRandomInt(2) ? '-' : ''
+  const reverseTop = getRandomInt(2) ? '-' : ''
+  const reverseStart = getRandomInt(2) ? '-' : ''
+
+  return `rotate: ${reverseRotate}${rotate}deg; top:${reverseTop}${top}px; left:${reverseStart}${start}px;`
+}
+
+function getRandomInt(max: number) {
+  return Math.floor(Math.random() * max)
+}
+
+watch(currentCard, (newVal: number) => {
+  if (newVal == 0) {
+    offsets.length = 0
+  }
+})
 </script>
