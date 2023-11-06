@@ -15,14 +15,14 @@ const cardElm = ref(null)
 onMounted(() => {
   if (!cardElm.value) return
   VanillaTilt.init(cardElm.value, {
-    max: 15,
+    max: 25,
     perspective: 2000,
     speed: 300,
     gyroscope: true,
-    gyroscopeMinAngleX: -15,
-    gyroscopeMaxAngleX: 15,
-    gyroscopeMinAngleY: -15,
-    gyroscopeMaxAngleY: 15
+    gyroscopeMinAngleX: -25,
+    gyroscopeMaxAngleX: 25,
+    gyroscopeMinAngleY: -25,
+    gyroscopeMaxAngleY: 25
   })
 })
 </script>

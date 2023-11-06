@@ -19,10 +19,10 @@
         :key="card"
         :src="`/playing_cards/fronts/${deck[card - 1]}.svg`"
         alt="card back"
-        class="absolute -z-10"
+        class="absolute scale-90"
         :style="offsets[card]"
       />
-      <PlayingCard :card="deck[currentCard]" class="shadow-xl"></PlayingCard>
+      <PlayingCard :card="deck[currentCard]" class="shadow-xl relative z-10"></PlayingCard>
     </div>
     <footer>
       <template v-if="lost">
