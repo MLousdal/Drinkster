@@ -32,3 +32,15 @@
   /* Support for IE. */
   font-feature-settings: 'liga';
 }
+
+.spin-enter-active,
+.spin-leave-active {
+  transition: all .75s ease;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.spin-enter-from,
+.spin-leave-to {
+  transform: rotateY(360deg);
+}

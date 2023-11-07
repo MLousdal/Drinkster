@@ -6,6 +6,9 @@
       Over / Under
     </h1>
   </header>
+  <!-- <section class="container gap-2 grid grid-cols-12">
+    <PlayingCard :card="card" class="shadow-xl relative z-10" v-for="card in deck" :key="card"></PlayingCard>
+  </section> -->
   <section class="container flex flex-col items-center gap-20">
     <header>
       <h2 class="text-3xl font-bold">
@@ -13,16 +16,22 @@
         <template v-else>Optælling</template>: {{ tally }}
       </h2>
     </header>
-    <div class="relative">
+    <div class="relative w-[234px] h-[333px]">
       <img
         v-for="card in currentCard"
         :key="card"
         :src="`/playing_cards/fronts/${deck[card - 1]}.svg`"
-        alt="card back"
+        alt=""
         class="absolute scale-90"
         :style="offsets[card]"
       />
-      <PlayingCard :card="deck[currentCard]" class="shadow-xl relative z-10"></PlayingCard>
+      <transition name="spin">
+        <PlayingCard
+          :card="deck[currentCard]"
+          :key="currentCard"
+          class="shadow-xl absolute inset-0 z-10"
+        ></PlayingCard>
+      </transition>
     </div>
     <footer>
       <template v-if="lost">
