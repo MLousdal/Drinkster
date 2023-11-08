@@ -18,7 +18,7 @@ module.exports = {
         '13': 'repeat(13, minmax(0, 1fr))',
       },
       dropShadow: {
-        'title': '0.05em 0.05em 0 rgba(0, 0, 0, 1)',
+        'title': '0.05em 0.05em rgba(0, 0, 0, 1)',
       }
     },
   },

@@ -1,65 +1,64 @@
 <template>
-  <section class="container flex min-h-[calc(100vh-53px)] flex-col items-center justify-around">
+  <section
+    class="container flex h-[calc(100vh-53px)] flex-col items-center justify-around gap-4 py-2 md:h-[calc(100vh-73px)]"
+  >
     <header>
-      <h2
-        class="flex items-center gap-4 font-mono text-4xl font-bold leading-9 sm:text-6xl xl:text-7xl"
-      >
-        <i class="ico">sports_bar</i> <span>x</span> <span>{{ tally }}</span>
+      <h2 class="flex items-center gap-4 align-baseline font-mono text-2xl font-bold leading-9">
+        <img src="/beer.svg" alt="" class="h-16 w-16 drop-shadow-title" />
+        <i class="ico">close</i><span class="text-4xl sm:text-6xl xl:text-7xl">{{ tally }}</span>
       </h2>
     </header>
-    <div class="aspect-card relative w-4/6 min-w-[156px] max-w-[468px]">
+    <div class="aspect-card relative grid w-4/6 min-w-[156px] max-w-[468px] place-items-center">
       <img
         v-for="card in currentCard"
         :key="card"
         :src="`/playing_cards/fronts/${deck[card - 1]}.svg`"
         alt=""
-        class="absolute w-full scale-90"
+        class="aspect-card relative col-start-1 row-start-1 scale-90"
         :style="offsets[card]"
       />
       <transition name="spin">
         <PlayingCard
           :card="deck[currentCard]"
           :key="currentCard"
-          class="absolute inset-0 z-30 shadow-xl"
+          class="relative inset-0 z-30 col-start-1 row-start-1 max-h-full shadow-xl"
         ></PlayingCard>
       </transition>
     </div>
     <footer class="flex items-center gap-8">
       <button
         type="button"
-        class="rounded-lg bg-green-700 p-2 text-4xl font-medium leading-none text-white hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 sm:p-4 sm:text-5xl"
+        class="aspect-square rounded-lg bg-green-700 p-2 font-medium leading-[0] text-white hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 sm:p-4"
         @click="pullCard(1)"
       >
-        <i class="ico">arrow_upward</i><span class="hidden">Over</span>
+        <i class="ico text-4xl leading-none sm:text-5xl">arrow_upward</i
+        ><span class="hidden">Over</span>
       </button>
       <button
         type="button"
-        class="rounded-lg bg-red-700 p-2 text-4xl font-medium leading-none text-white hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 sm:p-4 sm:text-5xl"
+        class="aspect-square rounded-lg bg-red-700 p-2 font-medium leading-[0] text-white hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 sm:p-4"
         @click="pullCard(0)"
       >
-        <i class="ico">arrow_downward</i><span class="hidden">Under</span>
+        <i class="ico text-4xl leading-none sm:text-5xl">arrow_downward</i
+        ><span class="hidden">Under</span>
       </button>
     </footer>
   </section>
   <transition name="fade">
     <section
       v-show="lost"
-      class="absolute inset-0 cursor-pointer bg-black bg-opacity-90"
+      class="absolute inset-0 z-20 cursor-pointer bg-black bg-opacity-90"
       role="dialog"
       aria-labelledby="lostTitle"
     >
       <h2
         id="lostTitle"
-        class="absolute start-1/2 top-8 leading-none z-40 -translate-x-1/2 text-center text-6xl sm:text-7xl font-bold uppercase text-white sm:top-10"
+        class="absolute start-1/2 top-8 -translate-x-1/2 text-center text-4xl font-bold uppercase text-white sm:top-10 sm:text-7xl"
       >
-        Du tabte <br />💀
+        <span class="text-7xl sm:text-8xl">💀</span><br />
+        Drik <span class="font-mono">{{ tally }}</span> tåre
       </h2>
-      <p
-        class="absolute bottom-8 start-1/2 z-40 -translate-x-1/2 text-center text-4xl font-bold uppercase text-white sm:bottom-14"
-      >
-        Drik {{ tally }} tåre
-      </p>
-      <div class="absolute inset-0 cursor-pointer z-50" @click="reset" role="button"></div>
+      <div class="absolute inset-0 z-50 cursor-pointer" @click="reset" role="button"></div>
     </section>
   </transition>
 </template>
