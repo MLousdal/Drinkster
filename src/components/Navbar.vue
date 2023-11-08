@@ -1,7 +1,7 @@
 <template>
   <nav
     v-if="$route.name != 'home'"
-    class="fixed inset-x-0 top-0 z-10 border-b border-black bg-neutral-50"
+    class="relative border-b border-black bg-neutral-50"
   >
     <RouterLink :to="{ name: 'home' }" class="me-auto block p-3 text-xl md:p-5 md:text-2xl"
       ><i class="ico">arrow_back_ios_new</i></RouterLink

@@ -2,44 +2,46 @@
   <section
     class="container flex h-[calc(100vh-53px)] flex-col items-center justify-around gap-4 py-2 md:h-[calc(100vh-73px)]"
   >
-    <header>
+    <header class="rounded-lg bg-neutral-200 px-6 py-3">
       <h2 class="flex items-center gap-4 align-baseline font-mono text-2xl font-bold leading-9">
-        <img src="/beer.svg" alt="" class="h-16 w-16 drop-shadow-title" />
-        <i class="ico">close</i><span class="text-4xl sm:text-6xl xl:text-7xl">{{ tally }}</span>
+        <img src="/beer.svg" alt="" class="xs:h-16 xs:w-16 h-12 w-12 drop-shadow-title" />
+        <i class="ico">close</i><span class="xs:text-6xl text-4xl xl:text-7xl">{{ tally }}</span>
       </h2>
     </header>
-    <div class="aspect-card relative grid w-4/6 min-w-[156px] max-w-[468px] place-items-center">
+    <div
+      class="xs:w-3/4 relative grid aspect-card w-3/4 min-w-[156px] max-w-[468px] place-items-center"
+    >
       <img
         v-for="card in currentCard"
         :key="card"
         :src="`/playing_cards/fronts/${deck[card - 1]}.svg`"
         alt=""
-        class="aspect-card relative col-start-1 row-start-1 scale-90"
+        class="relative col-start-1 row-start-1 aspect-card scale-90"
         :style="offsets[card]"
       />
       <transition name="spin">
         <PlayingCard
           :card="deck[currentCard]"
           :key="currentCard"
-          class="relative inset-0 z-30 col-start-1 row-start-1 max-h-full shadow-xl"
+          class="relative inset-0 z-20 col-start-1 row-start-1 max-h-full shadow-xl"
         ></PlayingCard>
       </transition>
     </div>
     <footer class="flex items-center gap-8">
       <button
         type="button"
-        class="aspect-square rounded-lg bg-green-700 p-2 font-medium leading-[0] text-white hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 sm:p-4"
+        class="xs:p-4 aspect-square rounded-lg bg-green-700 p-2 font-medium leading-[0] text-white hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300"
         @click="pullCard(1)"
       >
-        <i class="ico text-4xl leading-none sm:text-5xl">arrow_upward</i
+        <i class="ico xs:text-5xl text-4xl leading-none">arrow_upward</i
         ><span class="hidden">Over</span>
       </button>
       <button
         type="button"
-        class="aspect-square rounded-lg bg-red-700 p-2 font-medium leading-[0] text-white hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 sm:p-4"
+        class="xs:p-4 aspect-square rounded-lg bg-red-700 p-2 font-medium leading-[0] text-white hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300"
         @click="pullCard(0)"
       >
-        <i class="ico text-4xl leading-none sm:text-5xl">arrow_downward</i
+        <i class="ico xs:text-5xl text-4xl leading-none">arrow_downward</i
         ><span class="hidden">Under</span>
       </button>
     </footer>
@@ -47,23 +49,23 @@
   <transition name="fade">
     <section
       v-show="lost"
-      class="absolute inset-0 z-20 cursor-pointer bg-black bg-opacity-90"
+      class="absolute start-0 top-0 z-20 h-screen w-screen bg-black bg-opacity-90"
       role="dialog"
       aria-labelledby="lostTitle"
     >
       <h2
         id="lostTitle"
-        class="absolute start-1/2 top-8 -translate-x-1/2 text-center text-4xl font-bold uppercase text-white sm:top-10 sm:text-7xl"
+        class="xs:text-7xl absolute start-1/2 top-1/2 flex w-full -translate-x-1/2 -translate-y-1/2 flex-col gap-2 text-center text-4xl font-bold uppercase leading-10 text-white"
       >
-        <span class="text-7xl sm:text-8xl">💀</span><br />
-        Drik <span class="font-mono">{{ tally }}</span> tåre
+        <span class="xs:text-8xl text-7xl">💀</span><span> Drik {{ tally }} tåre </span>
       </h2>
-      <div class="absolute inset-0 z-50 cursor-pointer" @click="reset" role="button"></div>
+      <div class="z-60 absolute inset-0" @click="reset" role="button"></div>
     </section>
   </transition>
 </template>
 <script setup lang="ts">
 import PlayingCard from '@/components/PlayingCard.vue'
+
 import { onMounted, ref, reactive, watch } from 'vue'
 import { Guess } from '@/models/overunder'
 

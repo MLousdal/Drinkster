@@ -1,5 +1,5 @@
 <template>
-  <header class="mx-auto -mt-6 max-w-prose pb-8">
+  <header class="mx-auto max-w-prose py-8">
     <h1
       class="flex items-center justify-center gap-4 font-serif text-5xl font-bold leading-none text-amber-400 drop-shadow-title"
     >
