@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="aspect-card">
     <img :src="`/playing_cards/fronts/${card}.svg`" :alt="card" class="card" />
     <img
       src="/playing_cards/backs/red.svg"

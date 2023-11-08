@@ -8,6 +8,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      aspectRatio: {
+        'card': '26 / 37',
+      },
       fontFamily: {
         'serif': ['"Bebas Neue"', ...defaultTheme.fontFamily.serif],
       },

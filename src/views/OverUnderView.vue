@@ -7,7 +7,7 @@
         <i class="ico">sports_bar</i> <span>x</span> <span>{{ tally }}</span>
       </h2>
     </header>
-    <div class="relative aspect-[26/37] w-4/6 max-h-[666px] min-h-[222px]">
+    <div class="aspect-card relative w-4/6 min-w-[156px] max-w-[468px]">
       <img
         v-for="card in currentCard"
         :key="card"
@@ -28,7 +28,7 @@
       <template v-if="lost">
         <button
           type="button"
-          class="rounded-lg bg-blue-700 p-2 text-4xl sm:text-5xl sm:p-4 leading-none font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300"
+          class="rounded-lg bg-blue-700 p-2 text-4xl font-medium leading-none text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 sm:p-4 sm:text-5xl"
           @click="reset"
         >
           Drukket!
@@ -37,14 +37,14 @@
       <template v-else>
         <button
           type="button"
-          class="rounded-lg bg-green-700 p-2 text-4xl sm:text-5xl sm:p-4 leading-none font-medium text-white hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300"
+          class="rounded-lg bg-green-700 p-2 text-4xl font-medium leading-none text-white hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 sm:p-4 sm:text-5xl"
           @click="pullCard(1)"
         >
           <i class="ico">arrow_upward</i><span class="hidden">Over</span>
         </button>
         <button
           type="button"
-          class="rounded-lg bg-red-700 p-2 text-4xl sm:text-5xl sm:p-4 leading-none font-medium text-white hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300"
+          class="rounded-lg bg-red-700 p-2 text-4xl font-medium leading-none text-white hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 sm:p-4 sm:text-5xl"
           @click="pullCard(0)"
         >
           <i class="ico">arrow_downward</i><span class="hidden">Under</span>
