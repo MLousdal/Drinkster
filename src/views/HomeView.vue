@@ -1,7 +1,7 @@
 <template>
   <header class="mx-auto max-w-prose py-8">
     <h1
-      class="flex items-center justify-center gap-4 font-serif text-5xl font-bold leading-none text-amber-400 drop-shadow-title"
+      class="flex items-center justify-center gap-4 font-serif text-5xl font-bold leading-none text-amber-400 drop-shadow-title dark:filter-none"
     >
       <img src="/beer.svg" alt="" class="h-16 w-16" />
       <span>Drink'ster</span>
@@ -16,9 +16,6 @@
     </RouterLink>
     <RouterLink :to="{ name: 'Over / Under' }">
       <GameCard title="Over / Under" image="/overunder.svg" class="block"></GameCard>
-    </RouterLink>
-    <RouterLink :to="{ name: 'Over / Under' }" class="block">
-      <GameCard title="Over / Under" image="/overunder.svg"></GameCard>
     </RouterLink>
   </section>
 </template>

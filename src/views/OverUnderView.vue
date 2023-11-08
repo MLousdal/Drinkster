@@ -2,7 +2,7 @@
   <section
     class="container flex h-[calc(100vh-53px)] flex-col items-center justify-around gap-4 py-2 md:h-[calc(100vh-73px)]"
   >
-    <header class="rounded-lg bg-neutral-200 px-6 py-3">
+    <header class="rounded-lg bg-neutral-200 px-6 py-3 dark:bg-neutral-900">
       <h2 class="flex items-center gap-4 align-baseline font-mono text-2xl font-bold leading-9">
         <img src="/beer.svg" alt="" class="xs:h-16 xs:w-16 h-12 w-12 drop-shadow-title" />
         <i class="ico">close</i><span class="xs:text-6xl text-4xl xl:text-7xl">{{ tally }}</span>
