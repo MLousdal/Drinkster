@@ -19,6 +19,7 @@ defineProps<{
 .card {
   -webkit-backface-visibility: hidden; /* Safari */
   backface-visibility: hidden;
+  width: 100%;
 }
 
 .back {

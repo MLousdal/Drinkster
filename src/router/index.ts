@@ -10,7 +10,7 @@ const router = createRouter({
     },
     {
       path: '/overunder',
-      name: 'overunder',
+      name: 'Over / Under',
       component: () => import('../views/OverUnderView.vue')
     }
   ]

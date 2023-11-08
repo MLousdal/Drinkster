@@ -1,43 +1,34 @@
 <template>
-  <header class="mx-auto max-w-prose py-12">
-    <h1
-      class="text-5xl font-bold flex gap-4 items-center justify-center text-neutral-950 dark:text-amber-300"
-    >
-      Over / Under
-    </h1>
-  </header>
-  <!-- <section class="container gap-2 grid grid-cols-12">
-    <PlayingCard :card="card" class="shadow-xl relative z-10" v-for="card in deck" :key="card"></PlayingCard>
-  </section> -->
-  <section class="container flex flex-col items-center gap-20">
+  <section class="container flex min-h-[calc(100vh-53px)] flex-col items-center justify-around">
     <header>
-      <h2 class="text-3xl font-bold">
-        <template v-if="lost">Du tabte 💀</template>
-        <template v-else>Optælling</template>: {{ tally }}
+      <h2
+        class="flex items-center gap-4 font-mono text-4xl font-bold leading-9 sm:text-6xl xl:text-7xl"
+      >
+        <i class="ico">sports_bar</i> <span>x</span> <span>{{ tally }}</span>
       </h2>
     </header>
-    <div class="relative w-[234px] h-[333px]">
+    <div class="relative aspect-[26/37] w-4/6 max-h-[666px] min-h-[222px]">
       <img
         v-for="card in currentCard"
         :key="card"
         :src="`/playing_cards/fronts/${deck[card - 1]}.svg`"
         alt=""
-        class="absolute scale-90"
+        class="absolute w-full scale-90"
         :style="offsets[card]"
       />
       <transition name="spin">
         <PlayingCard
           :card="deck[currentCard]"
           :key="currentCard"
-          class="shadow-xl absolute inset-0 z-10"
+          class="absolute inset-0 z-30 shadow-xl"
         ></PlayingCard>
       </transition>
     </div>
-    <footer>
+    <footer class="flex items-center gap-8">
       <template v-if="lost">
         <button
           type="button"
-          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-5xl p-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          class="rounded-lg bg-blue-700 p-2 text-4xl sm:text-5xl sm:p-4 leading-none font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300"
           @click="reset"
         >
           Drukket!
@@ -46,17 +37,17 @@
       <template v-else>
         <button
           type="button"
-          class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-5xl p-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+          class="rounded-lg bg-green-700 p-2 text-4xl sm:text-5xl sm:p-4 leading-none font-medium text-white hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300"
           @click="pullCard(1)"
         >
-          <i class="ico">thumb_up</i><span class="hidden">Over</span>
+          <i class="ico">arrow_upward</i><span class="hidden">Over</span>
         </button>
         <button
           type="button"
-          class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-5xl p-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+          class="rounded-lg bg-red-700 p-2 text-4xl sm:text-5xl sm:p-4 leading-none font-medium text-white hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300"
           @click="pullCard(0)"
         >
-          <i class="ico">thumb_down</i><span class="hidden">Under</span>
+          <i class="ico">arrow_downward</i><span class="hidden">Under</span>
         </button>
       </template>
     </footer>
