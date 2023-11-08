@@ -25,33 +25,43 @@
       </transition>
     </div>
     <footer class="flex items-center gap-8">
-      <template v-if="lost">
-        <button
-          type="button"
-          class="rounded-lg bg-blue-700 p-2 text-4xl font-medium leading-none text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 sm:p-4 sm:text-5xl"
-          @click="reset"
-        >
-          Drukket!
-        </button>
-      </template>
-      <template v-else>
-        <button
-          type="button"
-          class="rounded-lg bg-green-700 p-2 text-4xl font-medium leading-none text-white hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 sm:p-4 sm:text-5xl"
-          @click="pullCard(1)"
-        >
-          <i class="ico">arrow_upward</i><span class="hidden">Over</span>
-        </button>
-        <button
-          type="button"
-          class="rounded-lg bg-red-700 p-2 text-4xl font-medium leading-none text-white hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 sm:p-4 sm:text-5xl"
-          @click="pullCard(0)"
-        >
-          <i class="ico">arrow_downward</i><span class="hidden">Under</span>
-        </button>
-      </template>
+      <button
+        type="button"
+        class="rounded-lg bg-green-700 p-2 text-4xl font-medium leading-none text-white hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 sm:p-4 sm:text-5xl"
+        @click="pullCard(1)"
+      >
+        <i class="ico">arrow_upward</i><span class="hidden">Over</span>
+      </button>
+      <button
+        type="button"
+        class="rounded-lg bg-red-700 p-2 text-4xl font-medium leading-none text-white hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 sm:p-4 sm:text-5xl"
+        @click="pullCard(0)"
+      >
+        <i class="ico">arrow_downward</i><span class="hidden">Under</span>
+      </button>
     </footer>
   </section>
+  <transition name="fade">
+    <section
+      v-show="lost"
+      class="absolute inset-0 cursor-pointer bg-black bg-opacity-90"
+      role="dialog"
+      aria-labelledby="lostTitle"
+    >
+      <h2
+        id="lostTitle"
+        class="absolute start-1/2 top-8 leading-none z-40 -translate-x-1/2 text-center text-6xl sm:text-7xl font-bold uppercase text-white sm:top-10"
+      >
+        Du tabte <br />💀
+      </h2>
+      <p
+        class="absolute bottom-8 start-1/2 z-40 -translate-x-1/2 text-center text-4xl font-bold uppercase text-white sm:bottom-14"
+      >
+        Drik {{ tally }} tåre
+      </p>
+      <div class="absolute inset-0 cursor-pointer z-50" @click="reset" role="button"></div>
+    </section>
+  </transition>
 </template>
 <script setup lang="ts">
 import PlayingCard from '@/components/PlayingCard.vue'

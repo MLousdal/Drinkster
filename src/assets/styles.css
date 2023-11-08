@@ -4,7 +4,7 @@
 
 @layer components {
   .container {
-    @apply mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 relative;
+    @apply relative mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24;
   }
 }
 
@@ -35,7 +35,7 @@
 
 .spin-enter-active,
 .spin-leave-active {
-  transition: all .75s ease;
+  transition: all 0.75s ease;
   perspective: 1000px;
   transform-style: preserve-3d;
 }
@@ -43,4 +43,14 @@
 .spin-enter-from,
 .spin-leave-to {
   transform: rotateY(360deg);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
