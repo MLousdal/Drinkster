@@ -7,10 +7,8 @@
       </div>
     </transition>
   </router-view>
-  <ReloadPrompt></ReloadPrompt>
 </template>
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
 import Navbar from '@/components/Navbar.vue'
-import ReloadPrompt from './components/ReloadPrompt.vue'
 </script>

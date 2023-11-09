@@ -13,7 +13,6 @@
     "generate-pwa-assets": "pwa-assets-generator"
   },
   "dependencies": {
-    "vanilla-tilt": "^1.8.1",
     "vue": "^3.3.4",
     "vue-router": "^4.2.5"
   },
