@@ -45,11 +45,11 @@ export default defineConfig({
         ],
         "id": "/?source=pwa",
         "start_url": "/?source=pwa",
-        "background_color": "#ffffff",
+        "background_color": "#fbbf24",
         "display": "standalone",
         "scope": "/",
         "shortcuts": [],
-        "theme_color": "#ffffff",
+        "theme_color": "#fbbf24",
         "description": "A collection of party games to get your party started!",
         "screenshots": []
       }
