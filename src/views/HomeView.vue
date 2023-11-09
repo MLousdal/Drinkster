@@ -7,7 +7,7 @@
       <span>Drink'ster</span>
     </h1>
   </header>
-  <section class="container grid gap-8 md:grid-cols-2 xl:grid-cols-4 xl:gap-12">
+  <section class="container flex flex-col md:flex-row gap-8 xl:gap-12">
     <RouterLink :to="{ name: 'Over / Under' }">
       <GameCard title="Over / Under" image="/overunder.svg" class="block"></GameCard>
     </RouterLink>
