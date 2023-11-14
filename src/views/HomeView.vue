@@ -1,14 +1,9 @@
 <template>
-  <section class="container flex flex-col md:flex-row gap-8 xl:gap-12 justify-center mt-12">
-    <RouterLink :to="{ name: 'overunder' }">
-      <GameCard :title="$t('overunder.title')" image="/overunder.svg" class="block"></GameCard>
-    </RouterLink>
-    <RouterLink :to="{ name: 'overunder' }">
-      <GameCard :title="$t('overunder.title')" image="/overunder.svg" class="block"></GameCard>
-    </RouterLink>
+  <section class="container mt-12 flex flex-col justify-center gap-8 md:flex-row xl:gap-12">
+    <GameCard :title="$t('overunder.title')" image="/overunder.svg" class="block" to="overunder" />
+    <GameCard :title="$t('dice.title')" image="/dice.svg" class="block" to="dice" />
   </section>
 </template>
 <script setup lang="ts">
-import { RouterLink } from 'vue-router'
 import GameCard from '@/components/GameCard.vue'
 </script>

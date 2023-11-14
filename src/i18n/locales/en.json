@@ -2,6 +2,9 @@
   "home": {
     "title": "Drink'ster"
   },
+  "dice": {
+    "title": "Dice"
+  },
   "overunder": {
     "title": "higher / lower",
     "higher": "higher",
