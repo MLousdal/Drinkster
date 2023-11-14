@@ -26,7 +26,7 @@ const supportedLocales = Tr.supportedLocales
 const router = useRouter()
 
 async function switchLanguage(e: Event) {
-  const newLocale = e.target!.value  
+  const newLocale = (<HTMLSelectElement>e.target).value
 
   await Tr.switchLanguage(newLocale)
 

@@ -77,7 +77,7 @@ const Trans = {
     return Trans.defaultLocale
   },
 
-  async routeMiddleware(to: { params: { locale: any } }, _from: any, next: (arg0: undefined) => any) {
+  async routeMiddleware(to: any, _from: any, next: any) {
     const paramLocale = to.params.locale
 
     if (!Trans.isLocaleSupported(paramLocale)) {
