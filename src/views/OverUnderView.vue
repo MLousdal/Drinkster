@@ -1,15 +1,15 @@
 <template>
   <section
-    class="container flex h-[calc(100vh-53px)] flex-col items-center justify-around gap-4 py-2 md:h-[calc(100vh-73px)]"
+    class="container flex h-[calc(100vh-52px)] flex-col items-center justify-around gap-4 py-2 md:h-[calc(100vh-72px)]"
   >
     <header class="rounded-lg bg-neutral-200 px-6 py-3 dark:bg-neutral-900">
       <h2 class="flex items-center gap-4 align-baseline font-mono text-2xl font-bold leading-9">
-        <img src="/beer.svg" alt="" class="xs:h-16 xs:w-16 h-12 w-12 drop-shadow-title" />
-        <i class="ico">close</i><span class="xs:text-6xl text-4xl xl:text-7xl">{{ tally }}</span>
+        <img src="/beer.svg" alt="" class="h-12 w-12 drop-shadow-title xs:h-16 xs:w-16" />
+        <i class="ico">close</i><span class="text-4xl xs:text-6xl xl:text-7xl">{{ tally }}</span>
       </h2>
     </header>
     <div
-      class="xs:w-3/4 relative grid aspect-card w-3/4 min-w-[156px] max-w-[468px] place-items-center"
+      class="relative grid aspect-card w-3/4 min-w-[156px] max-w-[468px] place-items-center xs:w-3/4"
     >
       <img
         v-for="card in currentCard"
@@ -30,19 +30,19 @@
     <footer class="flex items-center gap-8">
       <button
         type="button"
-        class="xs:p-4 aspect-square rounded-lg bg-green-700 p-2 font-medium leading-[0] text-white hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300"
+        class="aspect-square rounded-lg bg-green-700 p-2 font-medium leading-[0] text-white hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 xs:p-4"
         @click="pullCard(1)"
       >
-        <i class="ico xs:text-5xl text-4xl leading-none">arrow_upward</i
-        ><span class="hidden">Over</span>
+        <i class="ico text-4xl leading-none xs:text-5xl">arrow_upward</i
+        ><span class="hidden">{{ $t('overunder.higher') }}</span>
       </button>
       <button
         type="button"
-        class="xs:p-4 aspect-square rounded-lg bg-red-700 p-2 font-medium leading-[0] text-white hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300"
+        class="aspect-square rounded-lg bg-red-700 p-2 font-medium leading-[0] text-white hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 xs:p-4"
         @click="pullCard(0)"
       >
-        <i class="ico xs:text-5xl text-4xl leading-none">arrow_downward</i
-        ><span class="hidden">Under</span>
+        <i class="ico text-4xl leading-none xs:text-5xl">arrow_downward</i
+        ><span class="hidden">{{ $t('overunder.lower') }}</span>
       </button>
     </footer>
   </section>
@@ -55,9 +55,10 @@
     >
       <h2
         id="lostTitle"
-        class="xs:text-7xl absolute start-1/2 top-1/2 flex w-full -translate-x-1/2 -translate-y-1/2 flex-col gap-2 text-center text-4xl font-bold uppercase leading-10 text-white"
+        class="absolute start-1/2 top-1/2 flex w-full -translate-x-1/2 -translate-y-1/2 flex-col gap-2 text-center text-4xl font-bold uppercase leading-10 text-white xs:text-7xl"
       >
-        <span class="xs:text-8xl text-7xl">💀</span><span> Drik {{ tally }} tåre </span>
+        <span class="text-7xl xs:text-8xl">💀</span
+        ><span>{{ $t('overunder.drinkXSips', tally) }}</span>
       </h2>
       <div class="z-60 absolute inset-0" @click="reset" role="button"></div>
     </section>

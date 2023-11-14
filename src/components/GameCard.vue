@@ -1,9 +1,9 @@
 <template>
   <article
-    class="block rounded-lg border border-neutral-200 bg-white p-6 shadow hover:bg-neutral-100 dark:hover:bg-neutral-700 dark:bg-neutral-950 dark:border-neutral-600 transition"
+    class="block rounded-lg border border-neutral-200 bg-white p-6 shadow transition hover:bg-neutral-100 dark:border-amber-400 dark:bg-neutral-900 dark:hover:bg-neutral-800"
   >
     <img v-if="image" :src="image" alt="" class="w-full rounded-t-lg" />
-    <h2 class="mt-2 text-center text-2xl font-bold tracking-tight">
+    <h2 class="mt-2 text-center text-2xl font-bold capitalize tracking-tight">
       {{ title }}
     </h2>
   </article>

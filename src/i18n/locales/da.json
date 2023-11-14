@@ -1,0 +1,15 @@
+{
+  "home": {
+    "title": "Drink'ster"
+  },
+  "overunder": {
+    "title": "over / under",
+    "higher": "over",
+    "lower": "under",
+    "drinkXSips": "Ingen tåre | Drik {n} tår | Drik {n} tåre"
+  },
+  "locale": {
+    "en": "🇬🇧",
+    "da": "🇩🇰"
+  }
+}
