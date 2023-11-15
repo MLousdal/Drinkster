@@ -6,7 +6,7 @@
         <i class="ico">close</i><span class="text-4xl xs:text-6xl xl:text-7xl">{{ tally }}</span>
       </h2>
     </header>
-    <div class="relative grid w-3/4 min-w-[156px] max-w-[468px] place-items-center xs:w-3/4">
+    <div class="relative grid w-3/4 min-w-[156px] max-w-[468px] place-items-center">
       <img
         v-for="card in currentCard"
         :key="card"

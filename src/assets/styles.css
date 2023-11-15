@@ -35,7 +35,7 @@
   }
 
   .view {
-    @apply relative flex h-full flex-col items-center justify-between gap-4 py-4 md:gap-8 md:py-8;
+    @apply relative flex h-full flex-col items-center justify-between gap-[2vh] py-[2vh] md:gap-[2vw] md:py-[2vw];
   }
 
   .btn {

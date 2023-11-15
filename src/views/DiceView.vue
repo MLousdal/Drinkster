@@ -1,6 +1,5 @@
 <template>
   <section class="view">
-    <header></header>
     <div class="grid place-items-center">
       <main
         class="flex h-fit cursor-pointer flex-wrap items-center justify-center gap-12"
@@ -25,8 +24,8 @@
 import { ref } from 'vue'
 import Dice from '@/components/Dice.vue'
 
-const min = 1
-const max = 60
+const min = 0
+const max = 59
 
 const dice = ref(1)
 
