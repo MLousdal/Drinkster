@@ -42,28 +42,14 @@ function rollAllDice() {
 }
 
 function rollDice(dice: HTMLElement) {
-  const { x, y } = extractRotationValues(dice.style.transform);
 
   var xRand = getRandom(max, min)
   var yRand = getRandom(max, min)
 
-  dice.style.transform = 'rotateX(' + (xRand + x) + 'deg) rotateY(' + (yRand + y) + 'deg)'
+  dice.style.transform = 'rotateX(' + xRand + 'deg) rotateY(' + yRand + 'deg)'
 }
 
 function getRandom(max: number, min: number) {
   return (Math.floor(Math.random() * (max - min)) + min) * 90
-}
-
-function extractRotationValues(transform: string): { x: number | null, y: number | null } {
-    const regex = /rotateX\(([-+]?\d*\.?\d+)deg\).*rotateY\(([-+]?\d*\.?\d+)deg\)/;
-    const match = transform.match(regex);
-
-    if (match) {
-        const x = parseFloat(match[1]);
-        const y = parseFloat(match[2]);
-        return { x, y };
-    } else {
-        return { x: null, y: null };
-    }
 }
 </script>
