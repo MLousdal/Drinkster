@@ -1,16 +1,12 @@
 <template>
-  <section
-    class="container flex h-[calc(100vh-52px)] flex-col items-center justify-around gap-4 py-2 md:h-[calc(100vh-72px)]"
-  >
-    <header class="rounded-lg bg-neutral-200 px-6 py-3 dark:bg-neutral-900">
-      <h2 class="flex items-center gap-4 align-baseline font-mono text-2xl font-bold leading-9">
+  <section class="view">
+    <header class="rounded-lg bg-neutral-200 px-6 py-3 dark:bg-neutral-900 w-full">
+      <h2 class="flex items-center justify-center gap-4 align-baseline font-mono text-2xl font-bold leading-9">
         <img src="/beer.svg" alt="" class="h-12 w-12 drop-shadow-title xs:h-16 xs:w-16" />
         <i class="ico">close</i><span class="text-4xl xs:text-6xl xl:text-7xl">{{ tally }}</span>
       </h2>
     </header>
-    <div
-      class="relative grid aspect-card w-3/4 min-w-[156px] max-w-[468px] place-items-center xs:w-3/4"
-    >
+    <div class="relative grid w-3/4 min-w-[156px] max-w-[468px] place-items-center xs:w-3/4">
       <img
         v-for="card in currentCard"
         :key="card"
@@ -46,23 +42,25 @@
       </button>
     </footer>
   </section>
-  <transition name="fade">
-    <section
-      v-show="lost"
-      class="absolute start-0 top-0 z-20 h-screen w-screen bg-black bg-opacity-90"
-      role="dialog"
-      aria-labelledby="lostTitle"
-    >
-      <h2
-        id="lostTitle"
-        class="absolute start-1/2 top-1/2 flex w-full -translate-x-1/2 -translate-y-1/2 flex-col gap-2 text-center text-4xl font-bold uppercase leading-10 text-white xs:text-7xl"
+  <Teleport to="body">
+    <transition name="fade">
+      <section
+        v-show="lost"
+        class="absolute start-0 top-0 z-20 h-screen w-screen bg-black bg-opacity-90"
+        role="dialog"
+        aria-labelledby="lostTitle"
       >
-        <span class="text-7xl xs:text-8xl">💀</span
-        ><span>{{ $t('overunder.drinkXSips', tally) }}</span>
-      </h2>
-      <div class="z-60 absolute inset-0" @click="reset" role="button"></div>
-    </section>
-  </transition>
+        <h2
+          id="lostTitle"
+          class="absolute start-1/2 top-1/2 flex w-full -translate-x-1/2 -translate-y-1/2 flex-col gap-2 text-center text-4xl font-bold uppercase leading-10 text-white xs:text-7xl"
+        >
+          <span class="text-7xl xs:text-8xl">💀</span
+          ><span>{{ $t('overunder.drinkXSips', tally) }}</span>
+        </h2>
+        <div class="z-60 absolute inset-0" @click="reset" role="button"></div>
+      </section>
+    </transition>
+  </Teleport>
 </template>
 <script setup lang="ts">
 import PlayingCard from '@/components/PlayingCard.vue'

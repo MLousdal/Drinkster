@@ -34,6 +34,10 @@
     @apply relative mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24;
   }
 
+  .view {
+    @apply relative flex h-full flex-col items-center justify-between gap-4 py-4 md:gap-8 md:py-8;
+  }
+
   .btn {
     @apply aspect-square rounded-lg  p-2 font-medium leading-[0] text-white focus:outline-none focus:ring-4 xs:p-4;
   }
@@ -41,11 +45,11 @@
   .dice {
     @apply relative h-[15vh] w-[15vh] text-[15vh];
     transform-style: preserve-3d;
-    transition: transform .75s;
+    transition: transform 0.75s;
   }
 
   .side {
-    @apply absolute flex h-full w-full items-center rounded-md justify-center border-2 bg-neutral-200 dark:bg-neutral-900 border-neutral-950 before:h-1/5 before:w-1/5 before:rounded-full before:bg-neutral-950 before:content-[''] dark:border-neutral-50 before:dark:bg-neutral-50;
+    @apply absolute flex h-full w-full items-center justify-center rounded-md border-2 border-neutral-950 bg-neutral-200 before:h-1/5 before:w-1/5 before:rounded-full before:bg-neutral-950 before:content-[''] dark:border-neutral-50 dark:bg-neutral-900 before:dark:bg-neutral-50;
   }
 }
 

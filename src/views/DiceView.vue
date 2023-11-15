@@ -1,7 +1,5 @@
 <template>
-  <section
-    class="container flex h-[calc(100vh-52px)] flex-col items-center justify-between py-2 md:h-[calc(100vh-72px)]"
-  >
+  <section class="view">
     <header></header>
     <div class="grid place-items-center">
       <main

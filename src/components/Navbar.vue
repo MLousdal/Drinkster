@@ -13,11 +13,9 @@
     >
       {{ $t(`${$route.name?.toString()}.title`) }}
     </h1>
-    <LanguageSwitcher class="ms-auto"></LanguageSwitcher>
   </nav>
 </template>
 
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
-import LanguageSwitcher from './LanguageSwitcher.vue'
 </script>
