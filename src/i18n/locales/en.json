@@ -3,7 +3,9 @@
     "title": "Drink'ster"
   },
   "dice": {
-    "title": "Dice"
+    "title": "Dice",
+    "addDice": "Add dice",
+    "removeDice": "Remove dice"
   },
   "overunder": {
     "title": "higher / lower",

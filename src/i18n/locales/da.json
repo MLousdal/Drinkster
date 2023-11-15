@@ -3,7 +3,9 @@
     "title": "Drink'ster"
   },
   "dice": {
-    "title": "Terninger"
+    "title": "Terninger",
+    "addDice": "Tilføj terning",
+    "removeDice": "Fjern terning"
   },
   "overunder": {
     "title": "over / under",

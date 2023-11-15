@@ -33,6 +33,20 @@
   .container {
     @apply relative mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24;
   }
+
+  .btn {
+    @apply aspect-square rounded-lg  p-2 font-medium leading-[0] text-white focus:outline-none focus:ring-4 xs:p-4;
+  }
+
+  .dice {
+    @apply relative h-[15vh] w-[15vh] text-[15vh];
+    transform-style: preserve-3d;
+    transition: transform 2s;
+  }
+
+  .side {
+    @apply absolute flex h-full w-full items-center rounded-md justify-center border-2 bg-sky-400 dark:bg-sky-600 border-neutral-950 before:h-1/5 before:w-1/5 before:rounded-full before:bg-neutral-950 before:content-[''] dark:border-neutral-50 before:dark:bg-neutral-50;
+  }
 }
 
 .spin-enter-active,

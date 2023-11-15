@@ -30,7 +30,7 @@
     <footer class="flex items-center gap-8">
       <button
         type="button"
-        class="aspect-square rounded-lg bg-green-700 p-2 font-medium leading-[0] text-white hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 xs:p-4"
+        class="btn bg-green-700 hover:bg-green-800 focus:ring-green-300"
         @click="pullCard(1)"
       >
         <i class="ico text-4xl leading-none xs:text-5xl">arrow_upward</i
@@ -38,7 +38,7 @@
       </button>
       <button
         type="button"
-        class="aspect-square rounded-lg bg-red-700 p-2 font-medium leading-[0] text-white hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 xs:p-4"
+        class="btn bg-red-700 hover:bg-red-800 focus:ring-red-300"
         @click="pullCard(0)"
       >
         <i class="ico text-4xl leading-none xs:text-5xl">arrow_downward</i
