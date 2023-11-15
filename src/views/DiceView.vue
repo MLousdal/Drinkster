@@ -27,8 +27,8 @@
 import { ref } from 'vue'
 import Dice from '@/components/Dice.vue'
 
-const min = -6
-const max = 6
+const min = 1
+const max = 60
 
 const dice = ref(1)
 
@@ -42,9 +42,8 @@ function rollAllDice() {
 }
 
 function rollDice(dice: HTMLElement) {
-
-  var xRand = getRandom(max, min)
-  var yRand = getRandom(max, min)
+  const xRand = getRandom(max, min)
+  const yRand = getRandom(max, min)
 
   dice.style.transform = 'rotateX(' + xRand + 'deg) rotateY(' + yRand + 'deg)'
 }
