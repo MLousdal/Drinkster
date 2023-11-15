@@ -1,14 +1,12 @@
 <template>
   <section class="view">
-    <div class="grid place-items-center">
-      <main
-        class="flex h-fit cursor-pointer flex-wrap items-center justify-center gap-12"
-        @click="rollAllDice"
-      >
-        <Dice v-for="die in dice" :key="die" />
-      </main>
-    </div>
-    <footer class="flex items-center gap-8">
+    <main
+      class="mt-auto flex h-fit cursor-pointer flex-wrap items-center justify-center gap-12"
+      @click="rollAllDice"
+    >
+      <Dice v-for="die in dice" :key="die" />
+    </main>
+    <footer class="mt-auto flex items-center gap-8">
       <button class="btn bg-green-700 hover:bg-green-800 focus:ring-green-300" @click="dice++">
         <i class="ico text-4xl leading-none xs:text-5xl">add</i
         ><span class="hidden">{{ $t('dice.addDice') }}</span>
