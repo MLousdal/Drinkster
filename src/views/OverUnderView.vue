@@ -10,7 +10,7 @@
       <img
         v-for="card in currentCard"
         :key="card"
-        :src="`/playing_cards/fronts/${deck[card - 1]}.svg`"
+        :src="`/assets/playing_cards/fronts/${deck[card - 1]}.svg`"
         alt=""
         class="relative col-start-1 row-start-1 aspect-card scale-90"
         :style="offsets[card]"

@@ -1,8 +1,8 @@
 <template>
   <div class="aspect-card">
-    <img :src="`/playing_cards/fronts/${card}.svg`" :alt="card" class="card" />
+    <img :src="`/assets/playing_cards/fronts/${card}.svg`" :alt="card" class="card" />
     <img
-      src="/playing_cards/backs/red.svg"
+      src="/assets/playing_cards/backs/red.svg"
       alt=""
       class="card back absolute inset-0"
       ref="cardElm"
