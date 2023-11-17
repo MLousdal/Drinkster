@@ -3,6 +3,7 @@
     <div class="grid md:grid-cols-2 gap-8 xl:gap-12">
       <GameCard :title="$t('overunder.title')" image="/assets/overunder.png" to="overunder" />
       <GameCard :title="$t('dice.title')" image="/assets/dice.png" to="dice" />
+      <GameCard :title="$t('dong.title')" image="/assets/dice.png" to="dong" />
     </div>
     <footer class="me-auto">
       <LanguageSwitcher></LanguageSwitcher>

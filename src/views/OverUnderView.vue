@@ -1,7 +1,9 @@
 <template>
   <section class="view">
-    <header class="rounded-lg bg-neutral-200 px-6 py-3 dark:bg-neutral-900 w-full">
-      <h2 class="flex items-center justify-center gap-4 align-baseline font-mono text-2xl font-bold leading-9">
+    <header class="w-full rounded-lg bg-neutral-200 px-6 py-3 dark:bg-neutral-900">
+      <h2
+        class="flex items-center justify-center gap-4 align-baseline font-mono text-2xl font-bold leading-9"
+      >
         <img src="/beer.svg" alt="" class="h-12 w-12 drop-shadow-title xs:h-16 xs:w-16" />
         <i class="ico">close</i><span class="text-4xl xs:text-6xl xl:text-7xl">{{ tally }}</span>
       </h2>
@@ -66,7 +68,7 @@
 import PlayingCard from '@/components/PlayingCard.vue'
 
 import { onMounted, ref, reactive, watch } from 'vue'
-import { Guess } from '@/models/overunder'
+import { Guess } from '@/models/models'
 
 // Deck
 const suits = ['clubs', 'diamonds', 'hearts', 'spades']

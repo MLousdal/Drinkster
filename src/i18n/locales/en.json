@@ -2,6 +2,15 @@
   "home": {
     "title": "Drink'ster"
   },
+  "dong": {
+    "title": "Dong Generator",
+    "beer": { "title": "Beer", "label": "How many beers do you have?" },
+    "players": { "title": "Players", "label": "How many people are playing?" },
+    "sip": { "title": "Sips", "label": "How large sips do we take? (can)" },
+    "time": { "title": "Time", "label": "When do you want to finish?" },
+    "start": "Turn on",
+    "cancel": "Cancel"
+  },
   "dice": {
     "title": "Dice",
     "addDice": "Add dice",
@@ -16,5 +25,8 @@
   "locale": {
     "en": "🇬🇧",
     "da": "🇩🇰"
+  },
+  "undefined": {
+    "title": "‎"
   }
 }

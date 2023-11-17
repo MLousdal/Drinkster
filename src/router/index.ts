@@ -16,7 +16,13 @@ const router = createRouter({
           path: 'overunder',
           name: 'overunder',
           component: () => import('../views/OverUnderView.vue')
-        }, {
+        },
+        {
+          path: 'dong',
+          name: 'dong',
+          component: () => import('../views/DongView.vue')
+        },
+        {
           path: 'dice',
           name: 'dice',
           component: () => import('../views/DiceView.vue')

@@ -7,6 +7,15 @@
     "addDice": "Tilføj terning",
     "removeDice": "Fjern terning"
   },
+  "dong": {
+    "title": "Dong Generator",
+    "beer": { "title": "Øl", "label": "Hvor mange øl er der?" },
+    "players": { "title": "Spillere", "label": "Hvor mange spiller med?" },
+    "time": { "title": "Tid", "label": "Hvornår skal spillet slutte?" },
+    "sip": { "title": "Tåre", "label": "Hvor store tåre drikker vi? (dåse)" },
+    "start": "Tænd",
+    "cancel": "Afbryd"
+  },
   "overunder": {
     "title": "over / under",
     "higher": "over",
@@ -16,5 +25,8 @@
   "locale": {
     "en": "🇬🇧",
     "da": "🇩🇰"
+  },
+  "undefined": {
+    "title": "‎"
   }
 }
