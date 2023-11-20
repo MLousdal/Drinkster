@@ -5,6 +5,13 @@
   "gong": {
     "title": "Gong Generator",
     "beer": { "title": "Beer", "label": "How many beers do you have?" },
+    "booze": {
+      "title": "Booze",
+      "label": "What kind of booze are we drinking?",
+      "beer": "Beer",
+      "shots": "Shots"
+    },
+    "bottles": { "title": "Bottles", "label": "How many bottles do we have? (75cl)" },
     "players": { "title": "Players", "label": "How many people are playing?" },
     "sip": { "title": "Sips", "label": "How large sips do we take? (can)" },
     "time": { "title": "Time", "label": "When do you want to finish?" },
