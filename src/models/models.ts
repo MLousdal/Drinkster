@@ -11,7 +11,8 @@ export enum BoozeType {
 export interface IGong {
   active: boolean;
   beers: number;
+  booze: BoozeType;
   players: number;
-  time: string;
   sipSize: number;
+  time: string;
 }

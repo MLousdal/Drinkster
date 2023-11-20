@@ -29,7 +29,7 @@
           id="gongTitle"
           class="absolute start-1/2 top-1/2 flex w-fit -translate-x-1/2 -translate-y-1/2 flex-col gap-2 text-center text-4xl font-bold uppercase leading-10 text-white xs:text-7xl"
         >
-          <span class="text-[25vh] animate-wiggle">🍻</span>
+          <span class="text-[25vh] animate-wiggle">{{ gong.booze == BoozeType.Beer ? '🍻' : '🥃' }}</span>
         </h2>
       </section>
     </transition>
@@ -38,7 +38,7 @@
 
 <script setup lang="ts">
 import { watch, reactive, ref, type Ref, onBeforeUnmount } from 'vue'
-import type { IGong } from '@/models/models'
+import { BoozeType, type IGong } from '@/models/models'
 import Timer from './Timer.vue'
 import gongSound from '@/assets/gong.mp3'
 

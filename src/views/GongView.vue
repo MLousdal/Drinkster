@@ -14,9 +14,9 @@
           <div class="flex">
             <template v-if="item.name == 'booze'">
               <div
+                class="mx-2 flex grow items-center rounded border border-neutral-200 ps-4 first:ms-0 last:me-0 dark:border-neutral-700"
                 v-for="type in boozeTypes"
                 :key="type"
-                class="mx-2 flex grow items-center rounded border border-neutral-200 ps-4 first:ms-0 last:me-0 dark:border-neutral-700"
               >
                 <input
                   :id="`bordered-radio-${type}`"
@@ -24,7 +24,7 @@
                   v-model="item.value"
                   :value="type"
                   name="bordered-radio"
-                  class="h-4 w-4 border-neutral-300 bg-neutral-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-neutral-600 dark:bg-neutral-700 dark:ring-offset-neutral-800 dark:focus:ring-blue-600"
+                  class="h-4 w-4 border-neutral-300 bg-neutral-100 text-amber-600 focus:ring-2 focus:ring-amber-500 dark:border-neutral-600 dark:bg-neutral-700 dark:ring-offset-neutral-800 dark:focus:ring-amber-600"
                 />
                 <label
                   :for="`bordered-radio-${type}`"
@@ -93,6 +93,7 @@ const data = reactive({
 const gong: IGong = reactive({
   active: false,
   beers: 0,
+  booze: BoozeType.Beer,
   players: 1,
   time: '12:00',
   sipSize: 0.5
@@ -109,12 +110,17 @@ function generateGong() {
 
   gong.active = true
   gong.beers = boozePerPlayer
+  gong.booze = data.booze.value
   gong.players = data.players.value
-  gong.time = data.time.value
   gong.sipSize = data.sip.value
+  gong.time = data.time.value
 }
 
-watch(data, (newVal) => {
+watch(data, (newVal, oldVal) => {
+  if (newVal.booze.value == oldVal.booze.value) return
+
+  console.log('tesdt')
+
   if (newVal.booze.value == BoozeType.Beer) {
     data.bottles.hidden = true
     data.beer.hidden = false
