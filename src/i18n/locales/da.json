@@ -7,8 +7,8 @@
     "addDice": "Tilføj terning",
     "removeDice": "Fjern terning"
   },
-  "dong": {
-    "title": "Dong Generator",
+  "gong": {
+    "title": "Gong Generator",
     "beer": { "title": "Øl", "label": "Hvor mange øl er der?" },
     "players": { "title": "Spillere", "label": "Hvor mange spiller med?" },
     "time": { "title": "Tid", "label": "Hvornår skal spillet slutte?" },

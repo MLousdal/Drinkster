@@ -2,8 +2,8 @@
   "home": {
     "title": "Drink'ster"
   },
-  "dong": {
-    "title": "Dong Generator",
+  "gong": {
+    "title": "Gong Generator",
     "beer": { "title": "Beer", "label": "How many beers do you have?" },
     "players": { "title": "Players", "label": "How many people are playing?" },
     "sip": { "title": "Sips", "label": "How large sips do we take? (can)" },

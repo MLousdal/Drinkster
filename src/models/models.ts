@@ -3,7 +3,7 @@ export enum Guess {
   Over,
 }
 
-export interface IDong {
+export interface IGong {
   active: boolean;
   beers: number;
   players: number;

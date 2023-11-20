@@ -4,7 +4,7 @@
       class="flex items-center justify-center gap-4 align-baseline font-mono text-2xl font-bold leading-9"
     >
       <img src="/beer.svg" alt="" class="h-12 w-12 drop-shadow-title xs:h-16 xs:w-16" />
-      <span class="text-4xl xs:text-6xl xl:text-7xl">{{ local.currentBeer }}/{{ dong.beers }}</span>
+      <span class="text-4xl xs:text-6xl xl:text-7xl">{{ local.currentBeer }}/{{ gong.beers }}</span>
     </h2>
   </header>
   <Timer :end="local.endTime" @end="dongAlert"></Timer>
@@ -15,19 +15,20 @@
       @click="cancel"
     >
       <i class="ico text-4xl leading-none xs:text-5xl">cancel</i
-      ><span class="hidden">{{ $t('dong.cancel') }}</span>
+      ><span class="hidden">{{ $t('gong.cancel') }}</span>
     </button>
   </footer>
 </template>
 
 <script setup lang="ts">
-import { watch, reactive, ref, type Ref } from 'vue'
-import type { IDong } from '@/models/models'
+import { watch, reactive, ref, type Ref, onBeforeUnmount } from 'vue'
+import type { IGong } from '@/models/models'
 import Timer from './Timer.vue'
+import gongSound from '@/assets/gong.mp3'
 
 const emit = defineEmits(['end'])
 const props = defineProps<{
-  dong: IDong
+  gong: IGong
 }>()
 
 const local = reactive({
@@ -36,11 +37,13 @@ const local = reactive({
   endTime: 0
 })
 
+const audio = new Audio(gongSound)
+
 const timeout: Ref<ReturnType<typeof setTimeout>> | Ref<undefined> = ref(undefined)
 
 // Watchers
 watch(
-  props.dong,
+  props.gong,
   (newVal) => {
     if (!newVal.active) return
     const timeDiff = getTimeDiff(newVal.time)
@@ -49,13 +52,13 @@ watch(
     local.active = true
     local.endTime = timeBetweenBeer
 
-    initDong()
+    initGong()
   },
   { immediate: true }
 )
 
-// Dong logic
-function initDong() {
+// Gong logic
+function initGong() {
   if (timeout.value) {
     clearTimeout(timeout.value)
   }
@@ -63,14 +66,16 @@ function initDong() {
   timeout.value = setTimeout(dongAlert, local.endTime)
 }
 
-function dongAlert() {
-  local.currentBeer += props.dong.sipSize
-  console.log('Dong!')
+function dongAlert(distance: number) {
+  if (distance == undefined || distance == null) return
+  local.currentBeer += props.gong.sipSize
+  console.log('Gong!', distance)
+  audio.play()
 
-  if (local.currentBeer >= props.dong.beers) {
+  if (local.currentBeer >= props.gong.beers) {
     cancel()
   } else {
-    initDong()
+    initGong()
   }
 }
 
@@ -107,4 +112,6 @@ function getTimeDiff(end: string) {
   // Return time diff in milliseconds
   return ((hoursDiff * 60 + minutesDiff) * 60 + (60 - nowS)) * 1000
 }
+
+onBeforeUnmount(cancel)
 </script>

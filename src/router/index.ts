@@ -18,9 +18,9 @@ const router = createRouter({
           component: () => import('../views/OverUnderView.vue')
         },
         {
-          path: 'dong',
-          name: 'dong',
-          component: () => import('../views/DongView.vue')
+          path: 'gong',
+          name: 'gong',
+          component: () => import('../views/GongView.vue')
         },
         {
           path: 'dice',
