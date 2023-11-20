@@ -18,6 +18,22 @@
       ><span class="hidden">{{ $t('gong.cancel') }}</span>
     </button>
   </footer>
+  <Teleport to="body">
+    <transition name="fade">
+      <section
+        v-show="showGong"
+        class="absolute start-0 top-0 z-20 h-screen w-screen bg-black bg-opacity-90"
+        aria-labelledby="gongTitle"
+      >
+        <h2
+          id="gongTitle"
+          class="absolute start-1/2 top-1/2 flex w-fit -translate-x-1/2 -translate-y-1/2 flex-col gap-2 text-center text-4xl font-bold uppercase leading-10 text-white xs:text-7xl"
+        >
+          <span class="text-[25vh] animate-wiggle">🍻</span>
+        </h2>
+      </section>
+    </transition>
+  </Teleport>
 </template>
 
 <script setup lang="ts">
@@ -38,6 +54,8 @@ const local = reactive({
 })
 
 const audio = new Audio(gongSound)
+
+const showGong = ref(false)
 
 const timeout: Ref<ReturnType<typeof setTimeout>> | Ref<undefined> = ref(undefined)
 
@@ -69,7 +87,6 @@ function initGong() {
 function dongAlert(distance: number) {
   if (distance == undefined || distance == null) return
   local.currentBeer += props.gong.sipSize
-  console.log('Gong!', distance)
   audio.play()
 
   if (local.currentBeer >= props.gong.beers) {
@@ -84,6 +101,15 @@ function cancel() {
   clearTimeout(timeout.value)
   emit('end')
 }
+
+// Watcher
+watch(local, (newVal) => {
+  if (!newVal.currentBeer) return
+  showGong.value = true
+  setTimeout(() => {
+    showGong.value = false
+  }, 3500)
+})
 
 // Helpers
 function getTimeDiff(end: string) {
@@ -113,5 +139,6 @@ function getTimeDiff(end: string) {
   return ((hoursDiff * 60 + minutesDiff) * 60 + (60 - nowS)) * 1000
 }
 
+// Cleanup
 onBeforeUnmount(cancel)
 </script>
