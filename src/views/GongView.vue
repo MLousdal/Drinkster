@@ -116,11 +116,7 @@ function generateGong() {
   gong.time = data.time.value
 }
 
-watch(data, (newVal, oldVal) => {
-  if (newVal.booze.value == oldVal.booze.value) return
-
-  console.log('tesdt')
-
+watch(data, (newVal) => {
   if (newVal.booze.value == BoozeType.Beer) {
     data.bottles.hidden = true
     data.beer.hidden = false
